@@ -1,7 +1,12 @@
 <template>
   <main>
       <div class="container">
-          <h3>Content goes here</h3>
+
+         <ComicsComp
+            v-for="(comic, index) in comics"
+            :key="index"
+          />
+
       </div>
       
   </main>
@@ -9,21 +14,32 @@
 
 <script>
 
-import Comics from '@/assets/data/dc-comics.js'
+import comics from '@/assets/data/dc-comics.js'
+import ComicsComp from '@/components/ComicsComp.vue'
+
 
 export default {
-    name: 'MainComp'
+    name: 'MainComp',
+    components:{
+        ComicsComp
+    },
+    data(){
+        return {
+            comics
+        }
+    }
 }
 </script>
 
 
 <style lang="scss" scoped>
     main {
-        height: 70px;
         background-color: black;
-        line-height: 70px;
-        h3{
-            color: white;
+        height: 100px;
+        .container{
+            display: flex;
         }
+        
+        
     }
 </style>
