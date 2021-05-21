@@ -5,7 +5,12 @@
          <ComicsComp
             v-for="(comic, index) in comics"
             :key="index"
+            :single='comic'
           />
+
+          <div class="btn">
+              <button>LOAD MORE</button>
+          </div>
 
       </div>
       
@@ -33,11 +38,30 @@ export default {
 
 
 <style lang="scss" scoped>
+
+// importo le variabili
+@import '@/assets/style/vars';
+
     main {
         background-color: black;
-        height: 100px;
         .container{
             display: flex;
+            flex-wrap: wrap;
+            padding: 30px;
+            .btn{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 40px;
+                button{
+                    border: none;
+                    padding: 10px 40px;
+                    background-color: $brand-color;
+                    color: white;
+                    cursor: pointer;
+                }
+            }
         }
         
         

@@ -8,36 +8,14 @@
 
           <div class="menu">
               <ul>
-                  <li>
-                      <a href="#"><h5>Characters</h5></a>
+
+                  <li
+                    v-for="(link, index) in menu"
+                    :key="index"
+                  >
+                      <a :class="{'active' : link.current }"  href="#"><h5>{{ link.text }}</h5></a>
                   </li>
-                  <li>
-                      <a href="#"><h5>Characters</h5></a>
-                  </li>
-                  <li >
-                      <a class="active" href="#"><h5>Characters</h5></a>
-                  </li>
-                  <li>
-                      <a href="#"><h5>Characters</h5></a>
-                  </li>
-                  <li>
-                      <a href="#"><h5>Characters</h5></a>
-                  </li>
-                  <li>
-                      <a href="#"><h5>Characters</h5></a>
-                  </li>
-                  <li>
-                      <a href="#"><h5>Characters</h5></a>
-                  </li>
-                  <li>
-                      <a href="#"><h5>Characters</h5></a>
-                  </li>
-                  <li>
-                      <a href="#"><h5>Characters</h5></a>
-                  </li>
-                  <li>
-                      <a href="#"><h5>Characters</h5></a>
-                  </li>
+            
                  
               </ul>
           </div>
@@ -49,37 +27,48 @@
 
 <script>
 export default {
-    name: 'HeaderComp'
+    name: 'HeaderComp',
+    props:{
+        menu: Array
+    }
 }
 </script>
 
 
 <style lang="scss" scoped>
+
+@import '@/assets/style/vars.scss';
+
 header{
     width: 100%;
     height: 70px;
     .wrapper{
         height: 70px;
         display: flex;
-        justify-content: space-between;
+        
         align-items: center;
         .logo{
+            flex-basis: 90%;
             height: 60px;
             img{
-                height: 60px;
+                height: 100%;
             }
         }
     }
 }
+header .wrapper .menu{
+    flex-basis: 80%;
+}
 header .wrapper .menu ul{
+    height: 100%;
     display: flex;
+    align-items: center;
     list-style: none;
     li{
+        display: inline-block;
         height: 100%;
         margin: 5px;
-        
         a{
-            display: inline-block;
             text-decoration: none;
             h5{
                 text-transform: uppercase;
@@ -87,9 +76,9 @@ header .wrapper .menu ul{
                 color: black;
             }
         }
-        a:hover,
-        a.active{
-        margin-bottom: 2px solid blue;
+        &:hover,
+        &.active{
+        border-bottom: 2px solid $brand-color;
     }
     }
     

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <HeaderComp />
+    <HeaderComp :menu="links" />
     <MainComp />
     <FooterComp />
   </div>
@@ -14,6 +14,52 @@ import FooterComp from '@/components/FooterComp.vue'
 
 export default {
   name: "App",
+  data(){
+    return{
+      links: [
+        {
+          text: 'characters',
+          current: false
+        },
+        {
+          text: 'comics',
+          current: true
+        },
+        {
+          text: 'movies',
+          current: false
+        },
+        {
+          text: 'tv',
+          current: false
+        },
+        {
+          text: 'games',
+          current: false
+        },
+        {
+          text: 'collectibiles',
+          current: false
+        },
+        {
+          text: 'videos',
+          current: false
+        },
+        {
+          text: 'fans',
+          current: false
+        },
+        {
+          text: 'news',
+          current: false
+        },
+        {
+          text: 'shop',
+          current: false
+        }
+      ]
+    }
+  },
   components: {
     HeaderComp,
     MainComp,
